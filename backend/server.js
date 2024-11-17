@@ -3,6 +3,8 @@ configDotenv()
 import express from "express"
 import connectDB from './config/connectDB.js'
 import cors from "cors"
+import { StoreRoutes } from "./routes/stores.js"
+import { PartionRoutes } from "./routes/partions.js"
 
 
 
@@ -21,7 +23,8 @@ app.use((req , res , next) => {
 })
 
 //// routes 
-app.use('/' , )
+app.use('/store' , StoreRoutes)
+app.use('/partion' , PartionRoutes)
 /////// connectDB /////////
 connectDB()
 

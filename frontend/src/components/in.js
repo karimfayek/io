@@ -1,6 +1,7 @@
-import { CTable, CButton, CTableRow, CTableHeaderCell, CTableBody, CTableDataCell ,CRow ,CCol,CFormInput} from '@coreui/react';
+import { CTable, CButton, CTableRow,  CTableBody, CTableDataCell ,CRow ,CCol,CFormInput} from '@coreui/react';
 
 const In = () => {
+
     return (
 <>
 <p className='text-center'>Partion : _ | Shelf : _</p>

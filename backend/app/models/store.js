@@ -2,23 +2,23 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema()
 
-const StoreSchema = new Schema({
+const StoreSchema = new mongoose.Schema({
    title: {
     type : String,
-    required : true
+    required : true,
+    unique: true
    },
    description: {
-    type: string ,
+    type: String ,
     reqired :  false
-   },
-   partionsCount:{
-    type : Number,
-    required : false ,
    },
    partions:[
     {
         type: mongoose.Schema.Types.ObjectId,
-        required : true
+        ref : 'Partion',
+        required : false
     }
    ]
 })
+
+export const Store = mongoose.model('Store' , StoreSchema)
