@@ -15,8 +15,14 @@ const Stores = () => {
             });
             setStoresData((prevState) => [...prevState, response.data])
         } catch (error) {
-            console.log(error, 'error while adding store')
-            alert(error)
+             // Check if the error is from the server and contains a message
+        if (error.response && error.response.data && error.response.data.message) {
+            alert(`Validation Error: ${error.response.data.message}`);
+        } else {
+            // Generic error handling
+            console.error('Unexpected error:', error);
+            alert('Something went wrong. Please try again later.');
+        }
         }
 
     }
@@ -62,6 +68,8 @@ const Stores = () => {
                         (store) => (
                             <CTableRow key={store._id}>
                                 <CTableDataCell >{store.title}</CTableDataCell>
+                                <CTableDataCell >{store.partions?.length} partion/s
+                               </CTableDataCell>
                                 <CTableDataCell onClick={() => deleteStore(store._id)}>delete</CTableDataCell>
                             </CTableRow>
                         )

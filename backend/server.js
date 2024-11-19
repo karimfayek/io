@@ -11,12 +11,22 @@ import { PartionRoutes } from "./routes/partions.js"
 const app = express()
 
 /////// midlleware /////////
+
+// global error handling ///
+app.use((err, req , res , next)=> {
+    console.error('Unhandled Error',err)
+    res.status(500).json({message: 'Unhandeled Error Occured' , error:err.message })
+})
+
+//cors
 app.use(cors({
     origin : 'http://localhost:3000'
 }))
 
+// json
 app.use(express.json())
 
+// log requests
 app.use((req , res , next) => {
     console.log(req.path , req.method)
     next()
@@ -25,6 +35,7 @@ app.use((req , res , next) => {
 //// routes 
 app.use('/store' , StoreRoutes)
 app.use('/partion' , PartionRoutes)
+
 /////// connectDB /////////
 connectDB()
 

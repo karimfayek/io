@@ -29,8 +29,9 @@ function App() {
 
         </CSidebarNav>
       </CSidebar>
-      <CContainer>
-        {showTap == "in" &&
+      <CContainer style={{paddingTop:'4%'}}>
+      <div style={{border:'5px solid' , margin:10 , padding:20}}> 
+      {showTap == "in" &&
           <In />
         }
         {showTap == "out" &&
@@ -42,6 +43,8 @@ function App() {
         {showTap == "partions" &&
          <Partions />
         }
+      </div>
+        
 
       </CContainer>
     </div>

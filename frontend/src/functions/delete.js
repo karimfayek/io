@@ -7,7 +7,7 @@ export const Delete = async (id, from) => {
             id
         });
 
-        Fetch(from)
+       await Fetch(from)
     } catch (error) {
         console.log(error, 'error while adding store')
         alert(error)

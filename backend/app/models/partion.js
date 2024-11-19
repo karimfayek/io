@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema()
-
 const PartionSchema = new mongoose.Schema({
     partionNumber: {type: Number , required:true},
+    store:{type: mongoose.Schema.Types.ObjectId , ref:'Store' , required: true},
     shelves: [{type: mongoose.Schema.Types.ObjectId , ref:'Shelf'} ]
 })
 
