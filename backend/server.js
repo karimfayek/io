@@ -5,6 +5,8 @@ import connectDB from './config/connectDB.js'
 import cors from "cors"
 import { StoreRoutes } from "./routes/stores.js"
 import { PartionRoutes } from "./routes/partions.js"
+import {ShelfRoutes} from "./routes/shelf.js"
+import {BoxRoutes} from "./routes/box.js"
 
 
 
@@ -35,6 +37,8 @@ app.use((req , res , next) => {
 //// routes 
 app.use('/store' , StoreRoutes)
 app.use('/partion' , PartionRoutes)
+app.use('/shelf' , ShelfRoutes)
+app.use('/box' , BoxRoutes)
 
 /////// connectDB /////////
 connectDB()
